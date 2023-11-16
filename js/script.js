@@ -40,7 +40,7 @@ function startGame() {
     imgOrder.forEach((imgID) => {
         if(c > 3) { r += 1; c = 1; }
         let tile = document.createElement("img");
-        // tile.id = r.toString() + "-" + c.toString();
+
         tileID = getID(imgID);
     
 
