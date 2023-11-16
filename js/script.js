@@ -77,6 +77,7 @@ function moveTile() {
 
         turns++;
         document.getElementById('turns').innerHTML = turns +" tryck";
+        playAudio();
         checkBoard();
     }
     else {
@@ -102,6 +103,12 @@ function checkBoard() {
         }
     }
 }
+function playAudio() {
+    var audio = new Audio('./audio/tilemovement.wav');
+    audio.volume = 0.25;
+    audio.play();
+}
+
 function getID(tileID) {
     switch(tileID) {
         case 1:
