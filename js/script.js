@@ -1,9 +1,9 @@
 let turns = 0; 
 let r = 1;
-let c = 1;
+let hej = 1;
 let emptyTile;
 
-// Easy
+
 const order = [];
 order[0] = [1, 2, 7, 5, 4, 8, 9, 6, 3];
 order[1] = [2, 8, 9, 1, 6, 4, 7, 3, 5];
@@ -14,15 +14,15 @@ let imgOrder = order[2];
 let tileID;
 window.onload = function() {
     imgOrder.forEach((imgID) => {
-        if(c > 3) { r += 1; c = 1; }
+        if(hej > 3) { r += 1; hej = 1; }
         let tile = document.createElement("img");
         tileID = getID(imgID);
         tile.id = tileID;
 
         tile.src = "img/charmander500-3x3-" + imgID + ".png";
-        tile.className = "img_" + r +"x" + c
+        tile.className = "img_" + r +"x" + hej
         document.getElementById("board").append(tile)
-        c++;
+        hej++;
     });
     emptyTile = document.getElementById('img_1x3');
     document.getElementById('start').addEventListener("click", startGame);
@@ -34,11 +34,11 @@ function startGame() {
     turns = 0;
     document.getElementById('turns').innerHTML = turns +" tryck";
     r = 1;
-    c = 1;
+    hej = 1;
     imgOrder = order[Math.random().toFixed(0)];
    
     imgOrder.forEach((imgID) => {
-        if(c > 3) { r += 1; c = 1; }
+        if(hej > 3) { r += 1; hej = 1; }
         let tile = document.createElement("img");
 
         tileID = getID(imgID);
@@ -48,11 +48,11 @@ function startGame() {
         tile.src = "img/charmander500-3x3-" + imgID + ".png";
 
 
-        tile.className = "img_" + r +"x" + c
+        tile.className = "img_" + r +"x" + hej
         tile.addEventListener("click", moveTile);
         document.getElementById("board").append(tile)
 
-        c++;
+        hej++;
     });
     emptyTile = document.getElementById('img_1x3');
 }
