@@ -4,9 +4,8 @@ let c = 1;
 let emptyTile;
 
 let size = 168;
-// const imgOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// const imgOrder = [4, 2, 8, 5, 1, 7, 6, 9, 3];
-const imgOrder = [1, 2, 6, 4, 5, 3, 7, 8, 9];
+const imgOrder = [4, 2, 8, 5, 1, 7, 6, 9, 3];
+// const imgOrder = [1, 2, 6, 4, 5, 3, 7, 8, 9];
 
 let tileID;
 window.onload = function() {
