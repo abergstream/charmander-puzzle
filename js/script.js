@@ -3,12 +3,40 @@ let r = 1;
 let c = 1;
 let emptyTile;
 
-let size = 168;
-const imgOrder = [4, 2, 8, 5, 1, 7, 6, 9, 3];
-// const imgOrder = [1, 2, 6, 4, 5, 3, 7, 8, 9];
+// Easy
+const order = [];
+order[0] = [1, 2, 7, 5, 4, 8, 9, 6, 3];
+order[1] = [2, 8, 9, 1, 6, 4, 7, 3, 5];
+order[2] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+let imgOrder = order[2];
 
 let tileID;
 window.onload = function() {
+    imgOrder.forEach((imgID) => {
+        if(c > 3) { r += 1; c = 1; }
+        let tile = document.createElement("img");
+        tileID = getID(imgID);
+        tile.id = tileID;
+
+        tile.src = "img/charmander500-3x3-" + imgID + ".png";
+        tile.className = "img_" + r +"x" + c
+        document.getElementById("board").append(tile)
+        c++;
+    });
+    emptyTile = document.getElementById('img_1x3');
+    document.getElementById('start').addEventListener("click", startGame);
+}
+function startGame() {
+    for(let i = 1; i < 10; i++) {
+        document.getElementById(getID(i)).remove();
+    }
+    turns = 0;
+    document.getElementById('turns').innerHTML = turns +" tryck";
+    r = 1;
+    c = 1;
+    imgOrder = order[Math.random().toFixed(0)];
+   
     imgOrder.forEach((imgID) => {
         if(c > 3) { r += 1; c = 1; }
         let tile = document.createElement("img");
@@ -67,8 +95,7 @@ function checkBoard() {
         }
     }
     if(j == 9) {
-        document.getElementById('turns').innerHTML = "Du klarade det på " + turns + " tryck"
-
+        document.getElementById('turns').innerHTML = "Du klarade det på " + turns + " tryck";
         for(let i = 1; i < 10; i++) {
             let tile = document.getElementById(getID(i));
             tile.removeEventListener("click", moveTile);

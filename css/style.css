@@ -23,7 +23,8 @@ body {
     margin: .5em 0;
     z-index: 1;
     text-align: center;
-    height: 3em;
+    height: 2em;
+    /* display: none; */
 }
 
 #board {
@@ -42,7 +43,18 @@ body {
     position: absolute;
     transition: opacity .1s;
 }
-
+button {
+    width: calc(var(--imgSize) * 1.5);
+    height: 4em;
+    border-radius: 2em;
+    border: 4px solid #ff8600;
+    background-color: #ffe38f;
+    color: #333;
+    font-size: 1em;
+    font-weight: 550;
+    letter-spacing: .05em;
+    z-index: 1;
+}
 .img_1x1 {
     transform: translate(calc(var(--imgSize) * 0), calc(var(--imgSize) * 0));
 }
